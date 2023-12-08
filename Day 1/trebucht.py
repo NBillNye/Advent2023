@@ -1,14 +1,19 @@
 import re
 
 def calibrationValues(line):
-    numbers = re.findall(r'\d+', line)
-    number = int(str(numbers)[0])*10 + numbers%10
+    #numbers = re.findall(r'\d+', line)
+    num = ""
+    for c in line:
+        if c.isdigit():
+            num = num + c
+    print(num)
+    number = num[0] + str(int(num)%10)
     return number
 
 def calibrationSum(input):
     sum = 0
     for line in input:
-        sum += calibrationValues(line)
+        sum += int(calibrationValues(line))
     return sum
         
 
